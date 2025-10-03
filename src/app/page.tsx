@@ -1,103 +1,154 @@
+"use client";
+import AboutCard from "@/components/AboutCard";
+import Banner from "@/components/Banner";
+import Button from "@/components/Button";
+import Hero from "@/components/Hero";
+import HeroTwo from "@/components/HeroTwo";
+import OtherServiceCard from "@/components/OtherServiceCard";
+import ProductCard from "@/components/ProductCard";
+import ServiceCard from "@/components/ServiceCard";
+import Tab from "@/components/Tab";
+import Title from "@/components/Title";
+import {
+  about,
+  otherProducts,
+  otherServices,
+  products,
+  tab,
+} from "@/utils/constant";
 import Image from "next/image";
+import { useState } from "react";
 
-export default function Home() {
+function Home() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleToggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index); // close if same, else open new
+  };
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <Hero />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <section className="section">
+        <p>
+          Our aluminum joinery collection is designed not merely as functional
+          elements, but as architectural statements. Every door, partition, and
+          wardrobe system reflects a deliberate interplay of proportion,
+          material, and technology—where nothing is exposed, yet everything is
+          experienced. Our aluminum joinery collection is designed not merely as
+          functional elements, but as architectural statements. Every door,
+          partition, and wardrobe system reflects a deliberate interplay of
+          proportion, material, and technology—where nothing is exposed, yet
+          everything is experienced. Our aluminum joinery collection is designed
+          not merely as functional elements, but as architectural statements.
+          Every door, partition, and wardrobe system reflects a deliberate
+          interplay of proportion, material, and technology—where nothing is
+          exposed, yet everything is experienced.
+        </p>
+      </section>
+
+      <section className="section">
+        <Title
+          mainTitle="OUR ALUMINIUM SYSTEMS"
+          subTitle="Expert craftsmanship in aluminium systems, offering fit your unique space."
+        />
+
+        <div className="card_container gap-4 mt-6">
+          {products.map((item) => (
+            <ProductCard key={item.label} img={item.img} label={item.label} />
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+      </section>
+
+      <section className="section">
+        <div className="card_container gap-10 mt-6">
+          {otherProducts.map((item) => (
+            <ServiceCard key={item.label} img={item.img} label={item.label} />
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <Title mainTitle="About Our Products & Services" />
+        <div className="card_container gap-10 mt-12">
+          {about.map((item) => (
+            <AboutCard
+              key={item.title}
+              title={item.title}
+              content={item.content}
+            />
+          ))}
+        </div>
+      </section>
+
+      <HeroTwo />
+
+      <section className="px-4 md:px-10 grid grid-cols-1 sm:grid-cols-2 gap-10 border-b-2 border-[#D9D9D9]">
+        <div>
+          <p className="mt-12">MATERIALS</p>
+          <div className="mt-12">
+            <h2>
+              <span className="text-[#8c8c8c]"> UNLIKE PLASTICS,</span>
+              <br />
+              ALIMINUM iIS 100% <br /> RECYCLABLE.{" "}
+              <span className="text-[#8c8c8c]">
+                MOREOVER, <br /> APPROXIMATELY 70% OF IT
+              </span>{" "}
+              <br /> PRODUCED IS STILL IN USE.
+            </h2>
+          </div>
+
+          <div className="mt-15">
+            <Button label="VIEW PROJECTS" path="" />
+          </div>
+        </div>
+        <div>
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/materials.svg"
+            alt="materials"
+            width={1500}
+            height={1500}
+            priority
+            // className="w-full h-auto"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <Banner />
+
+        <div className="mt-26">
+          <Title mainTitle="FREQUENTLY ASKED QUESTIONS" />
+          <div className="mt-8">
+            {tab.map((item, index) => (
+              <Tab
+                key={index}
+                index={index}
+                title={item.title}
+                content={item.content}
+                isOpen={openIndex === index}
+                onToggle={() => handleToggle(index)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <Title mainTitle="OTHER SERVICES" />
+        <div className="card_container gap-10 mt-6">
+          {otherServices.map((item) => (
+            <OtherServiceCard
+              key={item.label}
+              img={item.img}
+              label={item.label}
+            />
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
+
+export default Home;
