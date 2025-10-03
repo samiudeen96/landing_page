@@ -91,7 +91,7 @@ function Home() {
             <h2>
               <span className="text-[#8c8c8c]"> UNLIKE PLASTICS,</span>
               <br />
-              ALIMINUM iIS 100% <br /> RECYCLABLE.{" "}
+              ALIMINUM IS 100% <br /> RECYCLABLE.{" "}
               <span className="text-[#8c8c8c]">
                 MOREOVER, <br /> APPROXIMATELY 70% OF IT
               </span>{" "}
