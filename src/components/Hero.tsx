@@ -24,11 +24,11 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/60 z-0"></div>
 
       <div className="relative z-10 text-white px-4 md:px-10 py-8">
-        <p className="text-xs">SERVICES / ALUMINIUM SYSTEMS</p>
-        <h1 className="text-[50px] text-white">Aluminum Systems</h1>
-        <p className="text-[20px]">
+        <span className="text-md font-semibold">SERVICES / ALUMINIUM SYSTEMS</span>
+        <h1 className="text-[50px] text-white font-semibold">Aluminum Systems</h1>
+        <span className="text-[18px] font-semibold">
           CONTEMPORARY SYSTEMS, SEAMLESS INTEGERATION
-        </p>
+        </span>
       </div>
 
       {/* Overlay + Text */}
