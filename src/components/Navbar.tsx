@@ -1,7 +1,7 @@
-
 import React from "react";
 import { menu } from "@/utils/constant";
 import Link from "next/link";
+import { MdMenu } from "react-icons/md";
 
 const Navbar = () => {
   return (
@@ -16,6 +16,10 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
+
+      <div className="sm:hidden ">
+        <MdMenu size={28} /> {/* sets both width and height to 40px */}
+      </div>
     </nav>
   );
 };
